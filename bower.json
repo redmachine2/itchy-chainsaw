@@ -16,6 +16,10 @@
     "modules",
     "test",
     "tests",
-    "src"
+    "src",
+    "*.html",
+    "*.js",
+    "package.json",
+    "bower.json"
   ]
 }

@@ -14,17 +14,17 @@ gulp.task('scripts', function(){
         .pipe(rename({suffix: '.min'}))
         .pipe(ngAnnotate())
         .pipe(uglify())
-        .pipe(gulp.dest('dist/itchy'))
+        .pipe(gulp.dest('itchy'))
 });
 
 gulp.task('html', function(){
     return gulp.src('src/*.html')
-        .pipe(gulp.dest('dist/itchy'))
+        .pipe(gulp.dest('itchy'))
 });
 
 gulp.task('css', function(){
     return gulp.src('src/*.css')
-        .pipe(gulp.dest('dist/itchy'))
+        .pipe(gulp.dest('itchy'))
 });
 
 gulp.task('watch', function(){
