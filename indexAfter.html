@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module Testing</title>
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="routerHelperProvider.js"></script>
+
+    <script type="text/javascript" src="dist/itchy/Chainsaw.min.js"></script>
+</head>
+<body ng-app="test">
+    <script>
+            angular.module('test', ['itchy', 'ui.router', 'uiHelper'])
+                    .run(appRun);
+
+            function appRun(routerHelper){
+                routerHelper.configureStates(getStates(), 'home');
+            }
+            function getStates(){
+                return [
+                    {
+                        state: 'home',
+                        config: {
+                            template: '<a ui-sref="Chainsaw">Home</a>',
+                            url: '/home'
+                        }
+                    }
+                ];
+            }
+    </script>
+    <ui-view></ui-view>
+</body>
+</html>
