@@ -17,8 +17,10 @@
     "test",
     "tests",
     "src",
-    "*.html",
-    "*.js",
+    "index.html",
+    "indexAfter.html",
+    "routerHelperProvider.js",
+    "gulpfile.js",
     "package.json",
     "bower.json"
   ]
