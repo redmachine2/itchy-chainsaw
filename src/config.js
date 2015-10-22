@@ -1,30 +1,36 @@
 /**
  * Created by Jason on 10/21/2015.
  */
-(function () {
-    'use strict';
-    angular
-        .module('itchy')
-        .run(runModule);
+(function (currentScriptPath) {
+	'use strict';
+	angular
+		.module('itchy')
+		.run(runModule);
 
-    runModule.$inject = ['routerHelper'];
+	runModule.$inject = ['routerHelper'];
 
-    /* @ngInject */
-    function runModule (routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
+	/* @ngInject */
+	function runModule (routerHelper) {
+		routerHelper.configureStates(getStates());
+	}
 
-    function getStates(){
-        return [
-            {
-                state: 'Chainsaw',
-                config: {
-                    template: '<h1>{{vm.title}}s are itchy</h1>',
-                    url: '/Chainsaw',
-                    controller: 'Chainsaw',
-                    controllerAs: 'vm'
-                }
-            }
-        ];
-    };
-})();
+	function getStates(){
+		return [
+			{
+				state: 'Chainsaw',
+				config: {
+					templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/') + 1) + 'Chainsaw.html',
+					url: '/Chainsaw',
+					controller: 'Chainsaw',
+					controllerAs: 'vm'
+				}
+			}
+		];
+	};
+})(
+	(function(){
+		var scripts = document.getElementsByTagName("script")
+		var currentScriptPath = scripts[scripts.length-1].src;
+		return currentScriptPath;
+	})()
+);
